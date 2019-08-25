@@ -66,43 +66,83 @@ public class MatrixController {
     @FXML
     void generateMatrix(ActionEvent event) {
     	Battlefield matrixA = new Battlefield(Integer.parseInt(rowA.getValue()), Integer.parseInt(columnA.getValue()));
+    	matrixA.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue())));
     	fields.add(matrixA);
     	
     	Battlefield matrixB = new Battlefield(Integer.parseInt(rowB.getValue()), Integer.parseInt(columnB.getValue()));
+    	matrixB.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue())));
     	fields.add(matrixB);
     	
     	multiplyMatrix();
     	
-    	GridPane current = new GridPane();
-    	
-    	for(int m=0; m<3; m++) {
-    		
-    		current.getChildren().clear();
-        	current.setAlignment(Pos.CENTER);
+
+    		oldMatrix.getChildren().clear();
+    		oldMatrix.setAlignment(Pos.CENTER);
+    		printOld();
+    		encriptMatrix.getChildren().clear();
+    		encriptMatrix.setAlignment(Pos.CENTER);
+    		printEncript();
+    		newMatrix.getChildren().clear();
+    		newMatrix.setAlignment(Pos.CENTER);
+    		printNew();
         	
-    		for(int i=0; i<fields.get(m).getRows(); i++) {
-    			
-    			for(int j=0; j<fields.get(m).getColumns(); j++) {
-    				Button numbers = new Button(Integer.toString(fields.get(m).getBattlefield()[i][j]));
-    				numbers.setMinWidth(current.getPrefWidth()); //-
-    				numbers.setMinWidth(current.getPrefWidth()); //
-    				current.add(numbers, j, i);
-    				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
-    				new EventHandler<MouseEvent>() {
-    					@Override public void handle(MouseEvent e) {
-    						numbers.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-    		    	   	}
-    		    	});
-    			}
-    		}
-    		if(m==0) {
-    			oldMatrix = current;
-    		}else if(m==1) {
-    			encriptMatrix = current;
-    		}else {
-    			newMatrix = current;
-    		}
     	}
+    
+    void printOld() {
+    	for(int i=0; i<fields.get(0).getRows(); i++) {
+			
+			for(int j=0; j<fields.get(0).getColumns(); j++) {
+				Button numbers = new Button(Integer.toString(fields.get(0).getBattlefield()[i][j]));
+				numbers.setVisible(true);
+				numbers.setMinWidth(oldMatrix.getPrefWidth()); //-
+				numbers.setMinWidth(oldMatrix.getPrefWidth()); //
+				oldMatrix.add(numbers, j, i);
+				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+				new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent e) {
+						numbers.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		    	   	}
+		    	});
+			}
+		}
+    }
+    
+    void printEncript() {
+    	for(int i=0; i<fields.get(1).getRows(); i++) {
+			
+			for(int j=0; j<fields.get(1).getColumns(); j++) {
+				Button numbers = new Button(Integer.toString(fields.get(1).getBattlefield()[i][j]));
+				numbers.setVisible(true);
+				numbers.setMinWidth(encriptMatrix.getPrefWidth()); //-
+				numbers.setMinWidth(encriptMatrix.getPrefWidth()); //
+				encriptMatrix.add(numbers, j, i);
+				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+				new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent e) {
+						numbers.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		    	   	}
+		    	});
+			}
+		}
+    }
+    
+    void printNew() {
+    	for(int i=0; i<fields.get(2).getRows(); i++) {
+			
+			for(int j=0; j<fields.get(2).getColumns(); j++) {
+				Button numbers = new Button(Integer.toString(fields.get(2).getBattlefield()[i][j]));
+				numbers.setVisible(true);
+				numbers.setMinWidth(newMatrix.getPrefWidth()); //-
+				numbers.setMinHeight(newMatrix.getPrefHeight()); //
+				newMatrix.add(numbers, j, i);
+				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+				new EventHandler<MouseEvent>() {
+					@Override public void handle(MouseEvent e) {
+						numbers.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		    	   	}
+		    	});
+			}
+		}
     }
 
     @FXML
@@ -137,6 +177,9 @@ public class MatrixController {
     	columnA.getItems().addAll("1", "2", "3", "4", "5");
     	rowB.getItems().addAll("1", "2", "3", "4", "5");
     	columnB.getItems().addAll("1", "2", "3", "4", "5");
+    	
+    	fields = new ArrayList<Battlefield>();
+    	oldMatrix.setVisible(true);
     }
     
 }
