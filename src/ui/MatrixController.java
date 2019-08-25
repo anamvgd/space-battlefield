@@ -4,11 +4,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import model.Battlefield;
 public class MatrixController {
 
@@ -44,6 +48,15 @@ public class MatrixController {
 
     @FXML
     private TextField matrixList;
+    
+    @FXML
+    private GridPane oldMatrix;
+
+    @FXML
+    private GridPane encriptMatrix;
+
+    @FXML
+    private GridPane newMatrix;
 
     @FXML
     void generateList(ActionEvent event) {
@@ -52,11 +65,48 @@ public class MatrixController {
 
     @FXML
     void generateMatrix(ActionEvent event) {
-
+    	Battlefield matrixA = new Battlefield(Integer.parseInt(rowA.getValue()), Integer.parseInt(columnA.getValue()));
+    	fields.add(matrixA);
+    	
+    	Battlefield matrixB = new Battlefield(Integer.parseInt(rowB.getValue()), Integer.parseInt(columnB.getValue()));
+    	fields.add(matrixB);
+    	
+    	multiplyMatrix();
+    	
+    	GridPane current = new GridPane();
+    	
+    	for(int m=0; m<3; m++) {
+    		
+    		current.getChildren().clear();
+        	current.setAlignment(Pos.CENTER);
+        	
+    		for(int i=0; i<fields.get(m).getRows(); i++) {
+    			
+    			for(int j=0; j<fields.get(m).getColumns(); j++) {
+    				Button numbers = new Button(Integer.toString(fields.get(m).getBattlefield()[i][j]));
+    				numbers.setMinWidth(current.getPrefWidth()); //-
+    				numbers.setMinWidth(current.getPrefWidth()); //
+    				current.add(numbers, j, i);
+    				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+    				new EventHandler<MouseEvent>() {
+    					@Override public void handle(MouseEvent e) {
+    						numbers.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+    		    	   	}
+    		    	});
+    			}
+    		}
+    		if(m==0) {
+    			oldMatrix = current;
+    		}else if(m==1) {
+    			encriptMatrix = current;
+    		}else {
+    			newMatrix = current;
+    		}
+    	}
     }
 
     @FXML
-    void multiplyMatrix(ActionEvent event) {
+    void multiplyMatrix() {
     	int fil_m1 = fields.get(0).getRows();
     	int col_m1 = fields.get(0).getColumns();
     	int[][] m1=fields.get(0).getBattlefield(); 
@@ -77,6 +127,8 @@ public class MatrixController {
     		    }
     		  }
     	}
+    	 matrixResultado.setBattlefield(multiplicacion);
+    	 fields.add(matrixResultado);
     }
     
     @FXML
