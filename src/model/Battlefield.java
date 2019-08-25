@@ -12,6 +12,7 @@ public class Battlefield {
 		this.columns = columns;
 		battlefield = new int[rows][columns];
 	}
+
 	
 	public int getRows() {
 		return rows;
@@ -42,6 +43,21 @@ public class Battlefield {
 		this.battlefield = battlefield;
 	}
 
+	public int[][] fillPositions(int num){
+		
+		int[][] positions = new int[num][num];
+		
+		for (int I = 0; I < positions.length; I++) {
+			for (int J = 0; J < positions[I].length; J++) {
+				int value = (int) (Math.random()*100+1);
+				
+				positions[I][J] = value;
+			}
+		}
+		
+		return positions;
+	}
+	
 
 	
 }
