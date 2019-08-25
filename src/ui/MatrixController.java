@@ -65,13 +65,17 @@ public class MatrixController {
 
     @FXML
     void generateMatrix(ActionEvent event) {
+    	
+    	
+    	
     	Battlefield matrixA = new Battlefield(Integer.parseInt(rowA.getValue()), Integer.parseInt(columnA.getValue()));
     	matrixA.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue())));
     	fields.add(matrixA);
     	
     	Battlefield matrixB = new Battlefield(Integer.parseInt(rowB.getValue()), Integer.parseInt(columnB.getValue()));
-    	matrixB.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue())));
+    	matrixB.setBattlefield(matrixA.fillCoefficients(Integer.parseInt(rowA.getValue())));
     	fields.add(matrixB);
+    	oldMatrix.getChildren().clear();
     	
     	multiplyMatrix();
     	
@@ -183,4 +187,3 @@ public class MatrixController {
     }
     
 }
-

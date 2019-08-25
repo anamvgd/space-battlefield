@@ -32,19 +32,6 @@ public class SpaceShip implements MatrixMultiplication {
 		this.posY = posY;
 	}
 	
-	public boolean cousinNumber(){
-		  int xyPosition=posX+posY;
-		  int contador = 2;
-		  boolean flag=true;
-		  while ((flag) && (contador!=xyPosition)){
-		    if (xyPosition % contador == 0) {
-		    	flag = false;
-		    }	      
-		    contador++;
-		  }
-		  return flag;
-		}
-
 
 	@Override
 	public int[][] componentToComponent() {
