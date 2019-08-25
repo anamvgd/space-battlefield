@@ -49,9 +49,9 @@ public class Battlefield {
 		this.battlefield = battlefield;
 	}
 
-	public int[][] fillPositions(int num){
+	public int[][] fillPositions(int num, int col){
 		
-		int[][] positions = new int[num][num];
+		int[][] positions = new int[num][col];
 		int prime = 0;
 		
 		for (int I = 0; I < positions.length; I++) {
@@ -61,7 +61,7 @@ public class Battlefield {
 				positions[I][J] = value;
 				
 				if(primeNumber(value)) {
-					SpaceShip sp = new SpaceShip(num, num);
+					SpaceShip sp = new SpaceShip(num, col);
 					spaceShip.add(sp);
 					prime++;
 				}
@@ -76,9 +76,10 @@ public class Battlefield {
 			while(counting < 5) {
 				
 				int pos = (int)(Math.random()*num+1);
+				int posY = (int)(Math.random()*col+1);
 				int val = (int)(Math.random()*100+1);
 				if(primeNumber(val)) {
-					positions[pos][pos] = val;
+					positions[pos][posY] = val;
 					
 				}
 				
@@ -90,12 +91,12 @@ public class Battlefield {
 		return positions;
 	}
 	
-	public int[][] fillCoefficients(int num){
+	public int[][] fillCoefficients(int num, int col){
 		
-		int[][] positions = new int[num][num];
+		int[][] positions = new int[num][col];
 		
-		for (int I = 0; I < positions.length; I++) {
-			for (int J = 0; J < positions[I].length; J++) {
+		for (int I = 0; I < num; I++) {
+			for (int J = 0; J < col; J++) {
 				int value = (int) (Math.random()*3+1);
 				
 				positions[I][J] = value;

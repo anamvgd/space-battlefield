@@ -69,11 +69,11 @@ public class MatrixController {
     	
     	
     	Battlefield matrixA = new Battlefield(Integer.parseInt(rowA.getValue()), Integer.parseInt(columnA.getValue()));
-    	matrixA.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue())));
+    	matrixA.setBattlefield(matrixA.fillPositions(Integer.parseInt(rowA.getValue()),Integer.parseInt(columnA.getValue())));
     	fields.add(matrixA);
     	
     	Battlefield matrixB = new Battlefield(Integer.parseInt(rowB.getValue()), Integer.parseInt(columnB.getValue()));
-    	matrixB.setBattlefield(matrixA.fillCoefficients(Integer.parseInt(rowA.getValue())));
+    	matrixB.setBattlefield(matrixB.fillCoefficients(Integer.parseInt(rowB.getValue()),Integer.parseInt(columnB.getValue())));
     	fields.add(matrixB);
     	oldMatrix.getChildren().clear();
     	
