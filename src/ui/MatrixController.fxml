@@ -8,8 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MatrixController">
    <children>
       <Label layoutX="83.0" layoutY="14.0" text="Matrix A">
          <font>
@@ -23,17 +22,17 @@
       </Label>
       <Label layoutX="18.0" layoutY="60.0" text="Rows" />
       <Label layoutX="9.0" layoutY="98.0" text="Columns" />
-      <TextField layoutX="66.0" layoutY="56.0" />
-      <TextField layoutX="66.0" layoutY="94.0" />
+      <TextField fx:id="rowA" layoutX="66.0" layoutY="56.0" />
+      <TextField fx:id="columnA" layoutX="66.0" layoutY="94.0" />
       <Label layoutX="260.0" layoutY="60.0" text="Rows" />
-      <TextField layoutX="305.0" layoutY="56.0" />
-      <TextField layoutX="305.0" layoutY="94.0" />
+      <TextField fx:id="rowB" layoutX="305.0" layoutY="56.0" />
+      <TextField fx:id="columnB" layoutX="305.0" layoutY="94.0" />
       <Label layoutX="250.0" layoutY="98.0" text="Columns" />
-      <CheckBox layoutX="478.0" layoutY="60.0" mnemonicParsing="false" text="Repeat numbers" />
-      <Button layoutX="499.0" layoutY="94.0" mnemonicParsing="false" text="Generate" />
-      <Button layoutX="223.0" layoutY="163.0" mnemonicParsing="false" text="Generate" />
+      <CheckBox fx:id="repeatNumbers" layoutX="478.0" layoutY="60.0" mnemonicParsing="false" text="Repeat numbers" />
+      <Button fx:id="generateMatrix" layoutX="499.0" layoutY="94.0" mnemonicParsing="false" onAction="#generateMatrix" text="Generate" />
+      <Button fx:id="genearteList" layoutX="223.0" layoutY="163.0" mnemonicParsing="false" onAction="#generateList" text="Generate" />
       <Label layoutX="14.0" layoutY="167.0" text="Generate Matrix List of: " />
-      <TextField layoutX="140.0" layoutY="163.0" prefHeight="25.0" prefWidth="72.0" />
+      <TextField fx:id="matrixList" layoutX="140.0" layoutY="163.0" prefHeight="25.0" prefWidth="72.0" />
       <Line endX="496.0" layoutX="104.0" layoutY="145.0" startX="-104.0" />
       <Line endX="496.0" layoutX="104.0" layoutY="207.0" startX="-104.0" />
    </children>
