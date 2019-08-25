@@ -1,6 +1,6 @@
 package model;
 
-public class SpaceShip implements MatrixMultiplication {
+public class SpaceShip {
 
 	private int posX;
 	private int posY;
@@ -32,24 +32,4 @@ public class SpaceShip implements MatrixMultiplication {
 		this.posY = posY;
 	}
 	
-
-	@Override
-	public int[][] componentToComponent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public int[][] combiningRows() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public int[][] combiningColumns() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
