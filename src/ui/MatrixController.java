@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class MatrixController {
@@ -17,16 +18,17 @@ public class MatrixController {
     private URL location;
 
     @FXML
-    private TextField rowA;
+    private ComboBox<String> rowA;
 
     @FXML
-    private TextField columnA;
+    private ComboBox<String> columnA;
 
     @FXML
-    private TextField rowB;
+    private ComboBox<String> rowB;
 
     @FXML
-    private TextField columnB;
+    private ComboBox<String> columnB;
+
 
     @FXML
     private CheckBox repeatNumbers;
@@ -52,7 +54,10 @@ public class MatrixController {
 
     @FXML
     void initialize() {
-    	
+    	rowA.getItems().addAll("1", "2", "3", "4", "5");
+    	columnA.getItems().addAll("1", "2", "3", "4", "5");
+    	rowB.getItems().addAll("1", "2", "3", "4", "5");
+    	columnB.getItems().addAll("1", "2", "3", "4", "5");
     }
     
 }
