@@ -11,7 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import model.Battlefield;
 public class MatrixController {
@@ -100,7 +106,9 @@ public class MatrixController {
 				Button numbers = new Button(Integer.toString(fields.get(0).getBattlefield()[i][j]));
 				numbers.setVisible(true);
 				numbers.setMinWidth(oldMatrix.getPrefWidth()); //-
-				numbers.setMinWidth(oldMatrix.getPrefWidth()); //
+				numbers.setMinWidth(oldMatrix.getPrefWidth());
+				numbers.setBackground(new Background(new BackgroundImage(new Image("ui/nave.png"),BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.DEFAULT,new BackgroundSize(numbers.getWidth(), numbers.getHeight(), true, true, true, true))));
+
 				oldMatrix.add(numbers, j, i);
 				numbers.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 				new EventHandler<MouseEvent>() {
