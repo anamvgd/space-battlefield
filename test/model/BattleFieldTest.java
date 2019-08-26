@@ -70,11 +70,37 @@ public class BattleFieldTest {
 	
 	
 	@Test
-	public void testPrimeNumber() {
+	public void testPrimeNumber1() {
 		setupScenary2();
 		
 		int testValue1 = 29;
 		int testValue2 = 6;
+		boolean expectedAnswer = false;
+		
+		assertTrue("The method did not compare correctly the prime number", battlef.primeNumber(testValue1));
+		assertTrue("The method did not compare correctly the prime number", battlef.primeNumber(testValue2) == expectedAnswer);
+		
+	}
+	
+	@Test
+	public void testPrimeNumber2() {
+		setupScenary2();
+		
+		int testValue1 = 811;
+		int testValue2 = 10;
+		boolean expectedAnswer = false;
+		
+		assertTrue("The method did not compare correctly the prime number", battlef.primeNumber(testValue1));
+		assertTrue("The method did not compare correctly the prime number", battlef.primeNumber(testValue2) == expectedAnswer);
+		
+	}
+	
+	@Test
+	public void testPrimeNumber3() {
+		setupScenary2();
+		
+		int testValue1 = 953;
+		int testValue2 = -10;
 		boolean expectedAnswer = false;
 		
 		assertTrue("The method did not compare correctly the prime number", battlef.primeNumber(testValue1));

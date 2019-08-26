@@ -22,7 +22,7 @@ public class Battlefield {
 	
 	public int getRows() {
 		return rows;
-	}
+	} 
 
 
 	public void setRows(int rows) {

@@ -92,7 +92,8 @@ public class MatrixController {
         	
     	}
     
-    void printOld() {
+    @FXML
+    public void printOld() {
     	for(int i=0; i<fields.get(0).getRows(); i++) {
 			
 			for(int j=0; j<fields.get(0).getColumns(); j++) {
@@ -111,7 +112,8 @@ public class MatrixController {
 		}
     }
     
-    void printEncript() {
+    @FXML
+    public void printEncript() {
     	for(int i=0; i<fields.get(1).getRows(); i++) {
 			
 			for(int j=0; j<fields.get(1).getColumns(); j++) {
